@@ -1,16 +1,10 @@
-import mysql.connector
 import datetime
 import hashlib
+import modulo1.conexion as c
 
-database = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    passwd="49800jil02",
-    database="python_proyecto1",
-    port=3306
-)
-
-cursor = database.cursor(buffered=True)
+conexion = c.conectar()
+database = conexion[0]
+cursor = conexion[1]
 
 class Usuario:
 
@@ -35,7 +29,7 @@ class Usuario:
             cursor.execute(sql,usuario_a_registrar)
             database.commit()
             result = [cursor.rowcount, self] #retorna cantidad de columnas modificadas por la consulta
-        except mysql.connector.errors.IntegrityError:
+        except c.ExcepcionEmailDuplicado():
            print("Ya existe un usuario registrado con este correo electronico")
            result = [0,self] #ninguna columna afectada
         except Exception as e:
