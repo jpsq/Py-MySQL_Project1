@@ -1,4 +1,4 @@
-from modulo1 import acciones
+from modulo1 import acciones as modulo1
 
 """
     Proyecto Python y MySQL

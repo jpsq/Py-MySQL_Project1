@@ -1,4 +1,5 @@
-#dentro del paquete usuarios
+#dentro del paquete modulo1
+import modulo1.usuarios as modulo
 
 class Acciones:
 
@@ -8,6 +9,14 @@ class Acciones:
         apellido = input("Ingrese su apellido: ")
         correo = input("Ingrese su correo electronico: ")
         password = input("Ingrese su contrasenia:")
+
+        usuario = modulo.Usuario(nombre,apellido,correo,password)
+        registro = usuario.registrar() #lo registro con el metodo de la clase usuario
+
+        if(registro[0] >= 1): #pregunta por el resultado de la funcion registro
+            print(f"Usuario {registro[1].nombre} registrado")
+        else:
+            print("Error en el proceso de registro")
 
     def login(self):
         print("\nIniciando logueo en el sistema...")
