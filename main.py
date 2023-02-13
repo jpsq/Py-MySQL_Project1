@@ -1,3 +1,5 @@
+from modulo1 import acciones
+
 """
     Proyecto Python y MySQL
     - Abrir asistente
@@ -6,7 +8,7 @@
     - Al elegir login, loguera y luego preguntara si:
     - Crear nota, mostrar notas o borrarlas.
 """
-
+#pantalla inicial
 print("""
 
     Acciones disponibles:
@@ -14,19 +16,10 @@ print("""
         - login
 """)
 
-accion = input("Elije una opcion: ")
+interactuador = modulo1.Acciones() #creo el objeto
+accion = input("¿Que quiere hacer? ")
+if accion=="registro":
+    interactuador.registro()
+elif accion=="login":
+    interactuador.login()
 
-if accion == "registro":
-    print("\nIniciando registro en el sistema...")
-    nombre = input("Ingrese su nombre: ")
-    apellido = input("Ingrese su apellido: ")
-    correo = input("Ingrese su correo electronico: ")
-    password = input("Ingrese su contrasenia:")
-    
-elif accion == "login":
-    print("\nIniciando logueo en el sistema...")
-    correo = input("Ingrese su correo electronico: ")
-    password = input("Ingrese su contrasenia: ")
-    
-
-  
