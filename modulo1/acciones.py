@@ -22,3 +22,14 @@ class Acciones:
         print("\nIniciando logueo en el sistema...")
         correo = input("Ingrese su correo electronico: ")
         password = input("Ingrese su contrasenia: ")
+
+        usuario = modulo.Usuario('','',correo,password)
+        login = usuario.identificar()
+
+        if correo == login[3]:
+            print(f"Usuario {login[1]} logueado con exito")
+            self.sistemaNotas(login)
+
+
+    def sistemaNotas(self,usuario):
+        return none

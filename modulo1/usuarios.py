@@ -39,4 +39,17 @@ class Usuario:
         return result #end of method
     
     def identificar(self):
-        return self.nombre
+
+        try:
+            sql = "select * from users where users_email = %s and users_password = %s" #da error si el select no es con *
+            usuario_a_loguear = [self.email,hashlib.sha256(self.password.encode('utf-8')).hexdigest()]
+
+            cursor.execute(sql,usuario_a_loguear)
+            result = cursor.fetchone()
+            
+            return result
+        
+        except Exception as e:
+            
+            print(type(e).__name__)
+            print("Login fallido.")
